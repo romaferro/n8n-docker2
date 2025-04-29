@@ -1,19 +1,17 @@
 services:
   - type: web
-    name: n8n-server
+    name: n8n-auto
     env: docker
     plan: free
-    repo: https://github.com/romaferro/n8n-docker2
-    branch: main
+    region: frankfurt
     dockerfilePath: ./Dockerfile
+    autoDeploy: true
     envVars:
       - key: N8N_BASIC_AUTH_ACTIVE
-        value: true
+        value: "true"
       - key: N8N_BASIC_AUTH_USER
-        value: admin
+        value: yourusername
       - key: N8N_BASIC_AUTH_PASSWORD
-        value: password
-
-GitHub (https://github.com/romaferro/n8n-docker2)
-GitHub - romaferro/n8n-docker2
-Contribute to romaferro/n8n-docker2 development by creating an account on GitHub.
+        value: yourpassword
+      - key: WEBHOOK_TUNNEL_URL
+        value: https://n8n-auto.onrender.com
